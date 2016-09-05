@@ -35,7 +35,8 @@ module.exports = function (RED) {
                             throw new Error("Service Call Error: " + err);
                         }
                         node.status({});
-                        node.send({payload: result});
+                        msg.payload = result;
+                        node.send(msg);
                     });
                 });
             });
